@@ -4,6 +4,14 @@
 
 **代码来源：SWMManywhere，原作者及贡献者来自其上游项目。本仓库是在该开源项目基础上的桌面化开发，不是 SWMManywhere 官方发行版。** 上游源代码副本位于 [`vendor/swmmanywhere-src`](vendor/swmmanywhere-src)，保留 [BSD-3-Clause 原始许可证](vendor/LICENSE-SWMManywhere)。
 
+## 下载
+
+前往 [GitHub Releases](https://github.com/eqsns/City-network-Genorator/releases) 下载软件附件及 SHA256 校验文件：
+
+- Windows 用户选择 `SWMManywhereStudio-Windows-x64.zip`，完整解压后双击 `SWMManywhereStudio.exe`。
+- Apple 芯片 Mac 用户选择 `CNG-macOS-AppleSilicon-Source.zip`。这是源码构建包，**尚不是可直接运行的 Mac 应用**，请按 [Mac 构建说明](README_MAC.md) 继续。
+- GitHub 自动生成的 `Source code` 压缩包只有源码，不包含 Windows 便携运行环境。
+
 ## 软件界面
 
 主地图不自动显示历史管网，可以直接选择下一次生成范围：
