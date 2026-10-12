@@ -1,0 +1,156 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatch-vcs",
+  "hatchling",
+]
+
+[project]
+name = "swmmanywhere"
+description = "SWMManywhere software"
+readme = "README.md"
+authors = [
+  { name = "Barnaby Dobson", email = "b.dobson@imperial.ac.uk" },
+  { name = "Diego Alonso-Álvarez", email = "d.alonso-alvarez@imperial.ac.uk" },
+  { name = "Taher Chegini", email = "tchegini@purdue.edu" },
+]
+requires-python = ">=3.10"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: GIS",
+  "Typing :: Typed",
+]
+dynamic = [
+  "version",
+]
+dependencies = [
+  "cdsapi",
+  "cytoolz",
+  "folium",
+  "geopandas>=1",
+  "geopy",
+  "joblib",
+  "jsonschema",
+  "loguru",
+  "matplotlib",
+  "netcdf4",
+  "networkx>=3",
+  "numpy>=2",
+  "osmnx>=1.9.3",
+  "pandas",
+  "planetary-computer",
+  "pyarrow",
+  "pydantic",
+  "pyflwdir",
+  "pystac-client",
+  "pyswmm",
+  "pywbt>=0.2.2",
+  "pyyaml",
+  "rasterio",
+  "rioxarray",
+  "scipy",
+  "shapely",
+  "tqdm",
+  "xarray",
+]
+optional-dependencies.dev = [
+  "mypy",
+  "pip-tools",
+  "pre-commit",
+  "pytest",
+  "pytest-cov",
+  "pytest-mock",
+  "pytest-mypy",
+  "ruff",
+]
+optional-dependencies.doc = [
+  "mkdocs",
+  "mkdocs-autorefs",
+  "mkdocs-bibtex",
+  "mkdocs-coverage",
+  "mkdocs-include-markdown-plugin",
+  "mkdocs-jupyter",
+  "mkdocs-material",
+  "mkdocs-material-extensions",
+  "mkdocstrings[python]",
+  "pypandoc",
+]
+urls.Documentation = "https://imperialcollegelondon.github.io/SWMManywhere/"
+urls.Issues = "https://github.com/ImperialCollegeLondon/SWMManywhere/issues"
+urls.Source = "https://github.com/ImperialCollegeLondon/SWMManywhere"
+
+[tool.hatch]
+build.hooks.vcs.version-file = "_version.py"
+build.targets.sdist.exclude = [
+  "*.zip",
+]
+build.targets.wheel.only-include = [ "src" ]
+build.targets.wheel.sources = [ "src" ]
+metadata.license = "BSD-3-clause"  # Or your primary license name
+metadata.license-files = [ "LICENSE", "src/netcomp/LICENSE.txt" ]
+version.source = "vcs"
+
+[tool.ruff]
+lint.select = [ "D", "E", "F", "I" ]  # pydocstyle, pycodestyle, Pyflakes, isort
+lint.per-file-ignores."docs/notebooks/*" = [ "D100" ]
+lint.per-file-ignores."src/netcomp/*" = [ "D", "F" ]  # Ignore all checks for netcomp
+lint.per-file-ignores."tests/*" = [ "D100", "D104" ]
+lint.isort.known-first-party = [ "swmmanywhere", "netcomp" ]
+lint.isort.required-imports = [ "from __future__ import annotations" ]
+lint.pydocstyle.convention = "google"
+
+[tool.codespell]
+skip = "src/swmmanywhere/defs/iso_converter.yml,*.inp,docs/paper/*"
+ignore-words-list = "gage,gages,Carrer,anc"
+
+[tool.mypy]
+disallow_any_explicit = false
+disallow_any_generics = false
+warn_unreachable = true
+warn_unused_ignores = false
+disallow_untyped_defs = false
+exclude = [ ".venv/" ]
+overrides = [ { module = "tests.*", disallow_untyped_defs = false } ]
+
+[tool.pytest]
+ini_options.addopts = "-v --cov=src/swmmanywhere --cov-report=xml --doctest-modules --ignore=src/swmmanywhere/logging.py"
+ini_options.markers = [
+  "downloads: mark a test as requiring downloads",
+]
+
+[tool.coverage]
+run.branch = true
+run.omit = [
+  "**/__init__.py",
+]
+run.source = [
+  "swmmanywhere",
+]
+paths.omit = [
+  "**/__init__.py",
+]
+paths.source = [ "src", "*/site-packages" ]
+report.exclude_lines = [
+  "if TYPE_CHECKING:",
+]
+report.ignore_errors = true
+report.omit = [
+  "**/__init__.py",
+]
+
+[tool.refurb]
+ignore = [
+  184,  # Because some frankly bizarre suggestions
+  109,  # Because pyyaml doesn't support tuples
+]
