@@ -1,5 +1,9 @@
 # 构建说明
 
+## 应用图标
+
+修改 `packaging/build_icons.py` 中的图形后，在已安装 Pillow 的构建环境执行 `python packaging/build_icons.py`，统一生成 `assets/app-icon.svg`、PNG、Windows ICO、Mac ICNS 及 `web/favicon.svg`、ICO。随后重新构建程序，图标会用于原生窗口、应用程序文件和浏览器标签页。
+
 ## Windows 10/11 x64
 
 1. 安装 Python 3.12 x64，在项目目录建立 `.venv-build`：

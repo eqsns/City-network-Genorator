@@ -1,5 +1,7 @@
 # CNG 城市排水管网生成
 
+<img src="assets/app-icon.svg" alt="CNG 应用图标" width="80" align="right">
+
 基于 **[SWMManywhere 0.2.2](https://github.com/ImperialCollegeLondon/SWMManywhere)** 的中文桌面应用。在地图上框选区域或输入经纬度，联网获取公开地理数据，在本机生成、查看和导出合成排水管网。
 
 **代码来源：SWMManywhere，原作者及贡献者来自其上游项目。本仓库是在该开源项目基础上的桌面化开发，不是 SWMManywhere 官方发行版。** 上游源代码副本位于 [`vendor/swmmanywhere-src`](vendor/swmmanywhere-src)，保留 [BSD-3-Clause 原始许可证](vendor/LICENSE-SWMManywhere)。

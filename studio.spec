@@ -6,6 +6,7 @@ from PyInstaller.utils.hooks import collect_all, collect_data_files, copy_metada
 root=Path(SPECPATH)
 sys.path.insert(0,str(root/'vendor'/'swmmanywhere-src'))
 datas=[(str(root/'web'),'web'),
+       (str(root/'assets'),'assets'),
        (str(root/'native'/'whitebox_tools.zip'),'native'),
        (str(root/'native'/'WebView2'),'native/WebView2'),
        (str(root/'vendor'/'swmmanywhere-src'),'vendor/swmmanywhere-src'),
@@ -30,5 +31,6 @@ a=Analysis([str(root/'desktop.py')],pathex=[str(root),str(root/'vendor'/'swmmany
            noarchive=False)
 pyz=PYZ(a.pure)
 exe=EXE(pyz,a.scripts,[],exclude_binaries=True,name='SWMManywhereStudio',debug=False,
-        bootloader_ignore_signals=False,strip=False,upx=False,console=False,disable_windowed_traceback=False)
+        bootloader_ignore_signals=False,strip=False,upx=False,console=False,disable_windowed_traceback=False,
+        icon=str(root/'assets'/'app-icon.ico'))
 coll=COLLECT(exe,a.binaries,a.datas,strip=False,upx=False,name='SWMManywhereStudio')

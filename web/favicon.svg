@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>CNG 城市排水管网生成</title>
+  <desc>深蓝绿圆角底上的 C 形管网、连接节点与青色水滴。</desc>
+  <defs>
+    <linearGradient id="ground" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512">
+      <stop stop-color="#12364f"/><stop offset="1" stop-color="#087f83"/>
+    </linearGradient>
+    <linearGradient id="water" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="512" y2="512">
+      <stop stop-color="#9af5e5"/><stop offset="1" stop-color="#38cbd1"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="url(#ground)"/>
+  <rect x="25" y="25" width="462" height="462" rx="107" fill="none" stroke="#ffffff" stroke-opacity=".13" stroke-width="2"/>
+  <path d="M88 204H424 M88 308H424 M202 88V424 M306 88V424" fill="none" stroke="#91e6df" stroke-opacity=".09" stroke-width="2"/>
+  <g fill="none" stroke="#f5fcff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 346 150 L 202 150 C 170 150 150 172 150 204 L 150 308 C 150 340 172 362 204 362 L 346 362" stroke-width="36"/>
+    <path d="M 150 256 L 232 256 C 262 256 267 278 302 278" stroke-width="24"/>
+  </g>
+  <g fill="#f5fcff">
+    <circle cx="150" cy="256" r="25"/>
+    <circle cx="346" cy="150" r="25"/>
+    <circle cx="346" cy="362" r="25"/>
+  </g>
+  <circle cx="150" cy="256" r="10" fill="#126574"/>
+  <g fill="#66e4dc"><circle cx="346" cy="150" r="10"/><circle cx="346" cy="362" r="10"/></g>
+  <path d="M 344 206 C 332 229 304 255 304 281 C 304 334 384 334 384 281 C 384 255 356 229 344 206Z" fill="url(#water)"/>
+  <path d="M 321 277 C 317 292 325 303 337 305" fill="none" stroke="#e7fffa" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -7,6 +7,7 @@ from PyInstaller.utils.hooks import collect_all, collect_data_files, copy_metada
 root = Path(SPECPATH)
 sys.path.insert(0, str(root / 'vendor' / 'swmmanywhere-src'))
 datas = [(str(root / 'web'), 'web'),
+         (str(root / 'assets'), 'assets'),
          (str(root / 'native' / 'macos-arm64' / 'whitebox_tools.zip'), 'native'),
          (str(root / 'vendor' / 'swmmanywhere-src'), 'vendor/swmmanywhere-src'),
          (str(root / '.cache' / 'macos-licenses'), 'licenses'),
@@ -34,6 +35,7 @@ exe = EXE(pyz, a.scripts, [], exclude_binaries=True, name='SWMManywhereStudio',
           codesign_identity=os.environ.get('CNG_CODESIGN_IDENTITY'))
 coll = COLLECT(exe, a.binaries, a.datas, strip=False, upx=False, name='CNG-macos-arm64')
 app = BUNDLE(coll, name='CNG 城市排水管网生成.app', bundle_identifier='io.github.eqsns.cng',
+             icon=str(root / 'assets' / 'app-icon.icns'),
              info_plist={'CFBundleDisplayName': 'CNG 城市排水管网生成',
-                         'CFBundleShortVersionString': '0.1.0', 'CFBundleVersion': '1',
+                         'CFBundleShortVersionString': '0.1.1', 'CFBundleVersion': '2',
                          'NSHighResolutionCapable': True})

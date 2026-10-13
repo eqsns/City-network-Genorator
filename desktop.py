@@ -178,9 +178,10 @@ def main():
         return True
 
     window.events.closing += closing
+    icon = ASSETS / 'assets' / ('app-icon.ico' if paths.platform == 'win32' else 'app-icon.png')
     try:
         webview.start(launch,gui=paths.renderer,private_mode=False,
-                      user_agent=paths.user_agent,storage_path=str(paths.webview))
+                      user_agent=paths.user_agent,storage_path=str(paths.webview),icon=str(icon))
     finally:
         if 'store' in state:
             state['store'].close()
